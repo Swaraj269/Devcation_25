@@ -82,6 +82,27 @@ gsap.to(glowDot, {
         const dist = Math.sqrt(dx * dx + dy * dy);
         station.classList.toggle("active", dist < 20);
       });
-    }
+    },
+  },
+});
+
+let lastScroll = 0;
+let timeout;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  // If scrolling down
+  if (currentScroll > lastScroll) {
+    gsap.to(navbar, { y: "-100%", duration: 0.5, ease: "power2.out" });
+  } else {
+    // Clear the old timeout and wait for 200ms after scrolling stops
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      gsap.to(navbar, { y: "0%", duration: 0.5, ease: "power2.out" });
+    }, 150);
   }
+
+  lastScroll = currentScroll;
 });
