@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Nregular";
+  src: url("./Assets/Fonts/Nippo-Regular.woff2");
+}
+@font-face {
+  font-family: "Nlight";
+  src: url("./Assets/Fonts/Nippo-Light.woff2");
+}
+@font-face {
+  font-family: "Nmedium";
+  src: url("./Assets/Fonts/Nippo-Medium.woff2");
+}
+@font-face {
+  font-family: "Nbold";
+  src: url("./Assets/Fonts/Nippo-Bold.woff2");
+}
+
+.loader {
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.station {
+  fill: black;
+  transition: all 0.3s ease;
+}
+
+.station.active {
+  fill: #facc15;
+  filter: drop-shadow(0 0 8px #facc15);
+}
+
+.glow-dot {
+  fill: #facc15;
+  r: 8;
+  filter: drop-shadow(0 0 8px #facc15);
+}
+
+.label {
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+svg {
+  display: block;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px #facc15, 0 0 40px #facc15, 0 0 60px #facc15;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px #fde047, 0 0 60px #fde047, 0 0 90px #fde047;
+    transform: scale(1.05);
+  }
+}
+
+.glow-trophy {
+  animation: glowPulse 3s ease-in-out infinite;
+}
